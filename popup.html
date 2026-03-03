@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 240px;
+      padding: 16px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #333;
+    }
+    h3 {
+      margin: 0 0 12px;
+      font-size: 15px;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .toggle {
+      position: relative;
+      width: 40px;
+      height: 22px;
+    }
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      inset: 0;
+      background: #ccc;
+      border-radius: 22px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 3px;
+      bottom: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    .toggle input:checked + .slider {
+      background: #4CAF50;
+    }
+    .toggle input:checked + .slider::before {
+      transform: translateX(18px);
+    }
+    select {
+      padding: 4px 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+      max-width: 130px;
+    }
+  </style>
+</head>
+<body>
+  <h3>YT Comment Translator</h3>
+  <div class="row">
+    <span>Enabled</span>
+    <label class="toggle">
+      <input type="checkbox" id="toggle" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+  <div class="row">
+    <label for="lang">Target language</label>
+    <select id="lang"></select>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
